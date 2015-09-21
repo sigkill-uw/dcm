@@ -19,6 +19,7 @@ dcm is written in node.js and is licensed under the MIT-Zero license.
 Files within this directory with the extension `.jade` are considered to be
 pages, and are assigned an identifier corresponding to their filename without
 the `.jade` extension. These files are furthermore parsed as follows:
+
 1. The initial lines of the file, up to and including a single blank line,
 are extracted and parsed as a JSON object. This object will be provided to
 the templating engine under the name `page`, with the addition of the field
