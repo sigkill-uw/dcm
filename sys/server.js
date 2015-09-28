@@ -41,7 +41,7 @@ var server = http.createServer(function(request, response) {
 				"Content-Length": 7,
 				"Content-Type": "text/plain"
 			});
-			response.end("eh bahd");
+			response.end("404 File Not Found");
 		}
 	}
 });
