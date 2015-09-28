@@ -1,0 +1,21 @@
+{
+  "name": "dcm",
+  "version": "1.0.0",
+  "description": "Dumb Content Manager Web Application",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sigkill-uw/dcm.git"
+  },
+  "keywords": [
+    "http"
+  ],
+  "author": "Adam `sigkill` Richardson",
+  "license": "MIT-Zero",
+  "bugs": {
+    "url": "https://github.com/sigkill-uw/dcm/issues"
+  }
+}

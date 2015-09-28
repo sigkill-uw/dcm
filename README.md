@@ -1,4 +1,5 @@
 # dcm
+
 dcm is a Dumb Content Manager, by Adam `sigkill` Richardson, for use on my
 personal resume site. It serves simple, static content, either HTML generated
 from Jade templates ("pages") or files read verbatim from the disk
@@ -9,6 +10,7 @@ is detected.
 dcm is written in node.js and is licensed under the MIT-Zero license.
 
 ## File/Directory Structure
+
 `start.js` - Run this through node to start the HTTP server.
 
 `config.json` - Configuration file, documented below.
@@ -16,9 +18,11 @@ dcm is written in node.js and is licensed under the MIT-Zero license.
 `sys/*` - Internal source directory for the engine
 
 `pages/*` - Directory for Jade templates representing the pages of your site.
-Files within this directory with the extension `.jade` are considered to be
-pages, and are assigned an identifier corresponding to their filename without
-the `.jade` extension. These files are furthermore parsed as follows:
+Files within this directory (at top level) with the extension `.jade`
+are considered to be pages, and are assigned an identifier corresponding
+to their filename without the `.jade` extension.
+
+These files are furthermore parsed as follows:
 
 1. The initial lines of the file, up to and including a single blank line,
 are extracted and parsed as a JSON object. This object will be provided to
@@ -31,7 +35,18 @@ this template file.
 final compiled output is cached by the engine to be served when the URL
 `/{identifier}` is requested.
 
+`static/*` - Directory for static content to be served verbatim. Files within
+this directory are recursively processed and added to a whitelist, and are
+thereafter served from URLs of the form `/static/{filename}` or simply
+`/{filename}`. Smaller files are cached in memory, whereas larger files are
+read directory from the disk, according to `max_cached_size`.
+
+`layout/*` - Directory for layout templates. The file `layout/layout.jade`
+must be provided, and is intended to interoperate with the templates specified
+in the `pages` directory.
+
 ## Configuration Options
+
 Configuration for the engine is done via `config.json` in the root directory.
 `config.json` specifies a single object with the following optional properties:
 
