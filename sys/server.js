@@ -3,6 +3,7 @@ var config = require("../config.json");
 var logf = require("./log.js").logf;
 
 logf("dcm starting up");
+logf("Current working directory is '%s'", process.cwd());
 
 var page_handler = require("./page_handler.js");
 var static_handler = require("./static_handler.js");
