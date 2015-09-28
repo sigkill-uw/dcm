@@ -23,6 +23,9 @@ function parsePages()
 {
 	logf("Parsing page directory '%s'", PAGE_DIRECTORY);
 
+	page_rehash_queued = false;
+	layout_rehash_queued = false;
+
 	var new_handle_map = {};
 
 	fs.readdir(PAGE_DIRECTORY, function(err, files) {
@@ -54,8 +57,6 @@ function parsePages()
 				);
 
 				handle_map = new_handle_map;
-				page_rehash_queued = false;
-				layout_rehash_queued = false;
 			});
 		}
 	});
@@ -142,7 +143,7 @@ parsePages();
 if(rehash_on_page_change)
 {
 	fs.watch(PAGE_DIRECTORY, function() {
-		if(!rehash_queued)
+		if(!page_rehash_queued)
 		{
 			logf("Change detected within page directory '%s'; rehashing in %ds",
 				PAGE_DIRECTORY,
@@ -158,7 +159,7 @@ if(rehash_on_page_change)
 if(rehash_on_layout_change)
 {
 	fs.watch(PAGE_LAYOUT_DIRECTORY, function() {
-		if(!rehash_queued)
+		if(!layout_rehash_queued)
 		{
 			logf("Change detected within layout directory '%s'; rehashing in %ds",
 				PAGE_LAYOUT_DIRECTORY,
