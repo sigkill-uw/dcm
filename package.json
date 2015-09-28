@@ -17,5 +17,12 @@
   "license": "MIT-Zero",
   "bugs": {
     "url": "https://github.com/sigkill-uw/dcm/issues"
+  },
+  "dependencies": {
+    "jade": "x.x.x",
+    "string.prototype.endswith": "x.x.x",
+    "async": "x.x.x",
+    "recursive-readdir": "x.x.x",
+    "mime-types": "x.x.x"
   }
 }

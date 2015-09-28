@@ -9,6 +9,11 @@ is detected.
 
 dcm is written in node.js and is licensed under the MIT-Zero license.
 
+## Deployment
+
+Run `npm install` from within the root directory to install all dependencies
+(as listed in `package.json`). Run `start.js` to instantiate the HTTP server.
+
 ## File/Directory Structure
 
 `start.js` - Run this through node to start the HTTP server.
