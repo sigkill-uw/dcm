@@ -73,3 +73,6 @@ a detected change in the page directory and the re-compilation of the pages
 therein, in millseconds. `static_rehash_timeout` is defined analagously for
 changes to the static directory; changes to the layout operate off the same
 timer as changes to the pages.
+
+`index_page`: String, no default. Optionally specifies the page handler to
+be invoked when the URL `/` is requested.

@@ -14,6 +14,8 @@ var server = http.createServer(function(request, response) {
 	);
 
 	request.url = decodeURI(request.url);
+	if("index_page" in config && (request.url == "" || request.url == "/"))
+		request.url = "/" + config.index_page;
 
 	var page = page_handler.handle(request.url);
 	if(page)
@@ -38,7 +40,7 @@ var server = http.createServer(function(request, response) {
 		{
 			logf("Unable to fill request to '%s' - serving 404", request.url);
 			response.writeHead(404, {
-				"Content-Length": 7,
+				"Content-Length": 18,
 				"Content-Type": "text/plain"
 			});
 			response.end("404 File Not Found");
